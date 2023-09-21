@@ -1,0 +1,43 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: "tap-redshift"
+default_environment: test
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: "tap-redshift"
+    namespace: "tap_redshift"
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+    config:
+      start_date: '2010-01-01T00:00:00Z'
+      tables:
+      - foo.bar
+    metadata:
+      foo-bar:
+        key-properties: [c1, c2, c3, c4]
+        replication-key: created_at
+        replication-method: INCREMENTAL
+    settings:
+    # TODO: To configure using Meltano, declare settings and their types here:
+    - name: user
+    - name: host
+    - name: database
+    - name: port
+      kind: integer
+    - name: password
+      kind: password
+    - name: sqlalchemy_url
+      kind: password
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+    config:
+      destination_path: .
