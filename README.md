@@ -4,31 +4,40 @@
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
-<!--
+## Capabilities
+
+* `about`
+* `state`
+* `catalog`
+* `discover`
+* `stream-maps`
+
+## Settings
+| Setting                      | Required | Default | Description |
+|:-----------------------------|:--------:|:-------:|:------------|
+| host                         | False    | None    | Hostname for postgres instance. Note if sqlalchemy_url is set this will be ignored. |
+| port                         | False    |    5432 | The port on which postgres is awaiting connection. Note if sqlalchemy_url is set this will be ignored. |
+| user                         | False    | None    | User name used to authenticate. Note if sqlalchemy_url is set this will be ignored. |
+| password                     | False    | None    | Password used to authenticate. Note if sqlalchemy_url is set this will be ignored. |
+| database                     | False    | None    | Database name. Note if sqlalchemy_url is set this will be ignored. |
+| sqlalchemy_url               | False    | None    | SQLAlchemy connection string. This will override using host, user, password, port, dialect, and all ssl settings. Note that you must escape password special characters properly. See https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords |
+| dialect+driver               | False    | redshift+redshift_connector | Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html. Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored. AWS recommends using redshift connector, hence we're not using the standard psycopg2 one. See https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift/ |
+
+
 
 Developer TODO: Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
 
 ## Installation
 
-Install from PyPi:
-
 ```bash
-pipx install tap-redshift
+pipx install -e .
 ```
-
-Install from GitHub:
-
-```bash
-pipx install git+https://github.com/ORG_NAME/tap-redshift.git@main
-```
-
--->
 
 ## Configuration
 
 ### Accepted Config Options
 
-<!--
+
 Developer TODO: Provide a list of config options accepted by the tap.
 
 This section can be created by copy-pasting the CLI output from:
@@ -36,7 +45,7 @@ This section can be created by copy-pasting the CLI output from:
 ```
 tap-redshift --about --format=markdown
 ```
--->
+
 
 A full list of supported settings and capabilities for this
 tap is available by running:
