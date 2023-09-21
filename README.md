@@ -16,10 +16,11 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 | Setting                      | Required | Default | Description |
 |:-----------------------------|:--------:|:-------:|:------------|
 | host                         | False    | None    | Hostname for postgres instance. Note if sqlalchemy_url is set this will be ignored. |
-| port                         | False    |    5432 | The port on which postgres is awaiting connection. Note if sqlalchemy_url is set this will be ignored. |
+| port                         | False    |    5439 | The port on which postgres is awaiting connection. Note if sqlalchemy_url is set this will be ignored. |
 | user                         | False    | None    | User name used to authenticate. Note if sqlalchemy_url is set this will be ignored. |
 | password                     | False    | None    | Password used to authenticate. Note if sqlalchemy_url is set this will be ignored. |
 | database                     | False    | None    | Database name. Note if sqlalchemy_url is set this will be ignored. |
+| tables                       | False    | None    | List of tables to replicate in `schema.table` format. If not specified, everything is included by default.
 | sqlalchemy_url               | False    | None    | SQLAlchemy connection string. This will override using host, user, password, port, dialect, and all ssl settings. Note that you must escape password special characters properly. See https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords |
 | dialect+driver               | False    | redshift+redshift_connector | Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html. Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored. AWS recommends using redshift connector, hence we're not using the standard psycopg2 one. See https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift/ |
 
