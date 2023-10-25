@@ -18,7 +18,7 @@ sqlalchemy-redshift = "^0.8.14"
 redshift-connector = "^2.0.911"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
+pytest = "^7.4.3"
 singer-sdk = { version="^0.32.0b2", extras = ["testing"] }
 
 [tool.poetry.extras]
